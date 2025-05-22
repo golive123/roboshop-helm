@@ -1,3 +1,7 @@
 appName: user
 containerPort: 8080
 serviceType: ClusterIP
+configMap_data:
+  MONGO: true
+  MONGO_URL: "mongodb://mongodb-dev.yourtherapist.in:27017/users"
+  REDIS_URL: "redis://redis-dev.yourtherapist.in:6379"
