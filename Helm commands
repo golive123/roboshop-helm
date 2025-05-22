@@ -3,3 +3,15 @@ Install procedure:
 curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | sudo bash
 
 helm version
+
+helm install frontend . #(create Chart.yaml file in current directory)
+
+helm install frontend . --set appName=frontend,containerport=8080
+helm install cart . --set appName=frontend,containerport=8080
+helm install catalogue . --set appName=frontend,containerport=8080
+helm install user . --set appName=frontend,containerport=8080
+helm install shipping . --set appName=frontend,containerport=8080
+helm install payment . --set appName=frontend,containerport=8080
+
+
+

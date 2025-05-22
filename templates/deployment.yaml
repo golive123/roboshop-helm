@@ -19,13 +19,3 @@ spec:
           image: public.ecr.aws/w8x4g9h7/roboshop-v3/{{ .Values.appName }}
           ports:
             - containerPort: {{ .Values.containerPort }}
-#          envFrom:
-#            - secretRef:
-#                name: {{ .Values.appName }}
-#          resources:
-#            requests:
-#              memory: {{ .Values.resources.requests.memory | quote }}
-#              cpu: {{ .Values.resources.requests.cpu | quote }}
-#            limits:
-#              memory: {{ .Values.resources.limits.memory | quote }}
-#              cpu: {{ .Values.resources.limits.cpu | quote }}
