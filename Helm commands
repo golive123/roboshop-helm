@@ -5,8 +5,9 @@ curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | sudo 
 helm version
 
 helm install frontend . #(create Chart.yaml file in current directory)
+helm uninstall frontend
 
-helm install frontend . --set appName=frontend,containerport=8080
+helm install frontend . --set appName=frontend,containerPort=8080
 helm install cart . --set appName=frontend,containerport=8080
 helm install catalogue . --set appName=frontend,containerport=8080
 helm install user . --set appName=frontend,containerport=8080
