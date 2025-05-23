@@ -11,6 +11,3 @@ configMap_data:
 
 db_job:
     enabled: true
-#    ext: js
-#    jobs:
-#      - master-data
