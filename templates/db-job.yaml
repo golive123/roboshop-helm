@@ -2,15 +2,14 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  generateName: {{ .Values.appName }}-db-job-
+  name: {{ .Values.appName }}-db-job
   labels:
     app: {{ .Values.appName }}
 spec:
   template:
     spec:
-      restartPolicy: Never
-      containers:
-      {{- range .Values.db_job.jobs }}
+      initContainers:
+        {{- range .Values.db_job.initJobs }}
         - name: {{ . }}
           image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
           env:
@@ -19,6 +18,18 @@ spec:
           envFrom:
             - configMapRef:
                 name: {{ $.Values.appName }}
-      {{- end }}
+        {{- end }}
+      containers:
+        {{- range .Values.db_job.jobs }}
+        - name: {{ . }}
+          image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
+          env:
+            - name: SCHEMA_FILE
+              value: db/{{ . }}.{{ $.Values.db_job.ext }}
+          envFrom:
+            - configMapRef:
+                name: {{ $.Values.appName }}
+        {{- end }}
+      restartPolicy: Never
   backoffLimit: 0
 {{- end }}
