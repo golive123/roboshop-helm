@@ -7,3 +7,4 @@ configMap_data:
   DB_TYPE: mongo
   APP_GIT_URL: https://github.com/roboshop-devops-project-v3/catalogue
   DB_HOST: mongodb-dev.yourtherapist.in
+  SCHEMA_FILE: db/master-data.js
