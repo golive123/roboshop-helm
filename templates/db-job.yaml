@@ -1,4 +1,4 @@
-{{ if .Values.db_job.enabled }}
+{{- if .Values.db_job.enabled | default false }}
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -7,8 +7,8 @@ metadata:
     app: {{ .Values.appName }}
 spec:
   template:
-     spec:
-       containers:
+    spec:
+      containers:
         - name: db
           image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
           envFrom:
@@ -16,4 +16,4 @@ spec:
                 name: {{ .Values.appName }}
       restartPolicy: Never
   backoffLimit: 0
-{{ end }}
+{{- end }}
