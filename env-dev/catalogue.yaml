@@ -9,7 +9,7 @@ configMap_data:
   DB_HOST: mongodb-dev.yourtherapist.in
   SCHEMA_FILE: db/master-data.js
 
-  db_job:
+db_job:
     enabled: true
 #    ext: js
 #    jobs:
