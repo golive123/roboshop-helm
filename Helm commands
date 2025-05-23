@@ -17,6 +17,10 @@ helm install catalogue . --set appName=frontend,containerport=8080
 helm install user . --set appName=frontend,containerport=8080
 helm install shipping . --set appName=frontend,containerport=8080
 helm install payment . --set appName=frontend,containerport=8080
+convert key to base64 format:
+
+[ devops18@vault ~ ]$ echo -n hvs.vDmeXxoN570Y46tfqceaShiB | base64
+aHZzLnZEbWVYeG9ONTcwWTQ2dGZxY2VhU2hpQg==
 
 
 
