@@ -15,3 +15,5 @@ db_job:
   ext: sql
   jobs:
     - master-data
+    - app-user
+    - schema
