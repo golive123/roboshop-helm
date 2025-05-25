@@ -18,3 +18,11 @@ db_job:
     - app-user
   jobs:
     - master-data
+
+resources:
+  requests:
+    memory: "20i"
+    cpu: "25"
+  limits:
+    memory: "30Mi"
+    cpu: "20m"
