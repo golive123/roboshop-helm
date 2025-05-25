@@ -7,10 +7,10 @@ configMap_data:
   CATALOGUE_PORT: "8080"
   REDIS_HOST: redis-dev.yourtherapist.in
 
-resources:
-  requests:
-    memory: "64Mi"
-    cpu: "30m"
-  limits:
-    memory: "128Mi"
-    cpu: "100m"
+#resources:
+#  requests:
+#    memory: "64Mi"
+#    cpu: "30m"
+#  limits:
+#    memory: "128Mi"
+#    cpu: "100m"

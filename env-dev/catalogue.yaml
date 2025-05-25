@@ -14,10 +14,10 @@ db_job:
   jobs:
     - master-data
 
-resources:
-  requests:
-    memory: "32Mi"
-    cpu: "10m"
-  limits:
-    memory: "12Mi"
-    cpu: "20m"
+#resources:
+#  requests:
+#    memory: "32Mi"
+#    cpu: "10m"
+#  limits:
+#    memory: "12Mi"
+#    cpu: "20m"

@@ -10,10 +10,10 @@ configMap_data:
   AMQP_USER: roboshop
   AMQP_PASS: roboshop123
 
-resources:
-  requests:
-    memory: "10Mi"
-    cpu: "20m"
-  limits:
-    memory: "20Mi"
-    cpu: "30m"
+#resources:
+#  requests:
+#    memory: "10Mi"
+#    cpu: "20m"
+#  limits:
+#    memory: "20Mi"
+#    cpu: "30m"
