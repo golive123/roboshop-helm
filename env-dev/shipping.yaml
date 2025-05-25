@@ -19,10 +19,4 @@ db_job:
   jobs:
     - master-data
 
-resources:
-  requests:
-    memory: "20i"
-#    cpu: "15"
-#  limits:
-#    memory: "30Mi"
-#    cpu: "20m"
+

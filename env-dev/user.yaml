@@ -6,10 +6,3 @@ configMap_data:
   MONGO_URL: "mongodb://mongodb-dev.yourtherapist.in:27017/users"
   REDIS_URL: "redis://redis-dev.yourtherapist.in:6379"
 
-#resources:
-#  requests:
-#    memory: "20Mi"
-#    cpu: "20m"
-#  limits:
-#    memory: "30Mi"
-#    cpu: "30m"

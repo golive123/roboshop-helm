@@ -14,11 +14,4 @@ configMap_data:
   PAYMENT_HOST: payment
   PAYMENT_PORT: "8080"
 
-#resources:
-#  requests:
-#    memory: "10Mi"
-#    cpu: "50m"
-#  limits:
-#    memory: "20Mi"
-#    cpu: "15m"
 
