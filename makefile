@@ -1,2 +1,2 @@
 install:
-	helm upgrade -i $(appName) . -f env-dev/$(appName).yaml
+	helm upgrade -i $(appName) . -f env-dev/$(appName).yaml --create-namespace
