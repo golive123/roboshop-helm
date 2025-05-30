@@ -1,3 +1,4 @@
+env: dev
 appName: user
 containerPort: 8080
 serviceType: ClusterIP
