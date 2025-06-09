@@ -21,6 +21,9 @@ convert key to base64 format:
 
 [ devops18@vault ~ ]$ echo -n hvs.vDmeXxoN570Y46tfqceaShiB | base64
 aHZzLnZEbWVYeG9ONTcwWTQ2dGZxY2VhU2hpQg==
+
+install helm wuith using sudo labauto then run below command:
+
 for app in catalogue cart user shipping payment frontend; do
   make appName=$app
 done
