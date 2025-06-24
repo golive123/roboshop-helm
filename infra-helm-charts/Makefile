@@ -1,3 +1,5 @@
+clean:
+	rm -rf .terraform .terraform.lock.hcl
 dev-apply:
 	git pull
 	rm -rf .terraform/terraform.tfstate
