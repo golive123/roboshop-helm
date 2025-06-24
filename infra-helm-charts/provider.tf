@@ -6,7 +6,7 @@ provider "helm" {
 
 provider "azurerm" {
   features {}
-  subscription_id = "323379f3-3beb-4865-821e-0fff68e4d4ca"
+  subscription_id = "a9bc3c93-b459-4ffb-8364-38ff9554f652"
 }
 
 terraform {
