@@ -21,13 +21,13 @@ resource "helm_release" "external-secrets" {
   create_namespace = true
   set = [
     {
-      name  = "installCRDs"
-      value = "true"
+      name  = "server.service.type"
+      value = "LoadBalancer"
     }
   ]
 }
 
-resource "null_resource" "external-secrets-secret-store1" {
+resource "null_resource" "external-secrets-secret-store" {
   depends_on = [
     helm_release.external-secrets
   ]
@@ -66,4 +66,21 @@ data:
 KUBE
 TF
   }
+}
+
+resource "helm_release" "argocd" {
+  depends_on = [
+    null_resource.kubeconfig
+  ]
+  name             = "argo-cd"
+  repository       = "https://argoproj.github.io/argo-helm"
+  chart            = "argo-cd"
+  namespace        = "argocd"
+  create_namespace = true
+  set = [
+    {
+      name  = "server.service.type"
+      value = "LoadBalancer"
+    }
+  ]
 }
