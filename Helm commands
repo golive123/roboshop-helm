@@ -28,5 +28,69 @@ for app in catalogue cart user shipping payment frontend; do
   make appName=$app
 done
 
+helm -ls -n app
+helm uninstall cart -n app
+=====================================================================
+argocd commands:
+
+kubectl get secrets -n argocd
+NAME                            TYPE                 DATA   AGE
+argocd-initial-admin-secret     Opaque               1      112s
+argocd-notifications-secret     Opaque               0      118s
+argocd-redis                    Opaque               1      2m3s
+argocd-secret                   Opaque               5      118s
+sh.helm.release.v1.argo-cd.v1   helm.sh/release.v1   1      2m28s
+
+51.137.130.122 | 10.0.0.10 | Standard_B2s | https://github.com/udayach123/misc-code.git
+[ devops18@vault ~/misc-code/tools_setup ]$ kubectl get secrets argocd-initial-admin-secret -n argocd
+NAME                          TYPE     DATA   AGE
+argocd-initial-admin-secret   Opaque   1      2m5s
+
+51.137.130.122 | 10.0.0.10 | Standard_B2s | https://github.com/udayach123/misc-code.git
+[ devops18@vault ~/misc-code/tools_setup ]$ kubectl get secrets argocd-initial-admin-secret -n argocd -o wide yml
+NAME                          TYPE     DATA   AGE
+argocd-initial-admin-secret   Opaque   1      2m11s
+Error from server (NotFound): secrets "yml" not found
+
+51.137.130.122 | 10.0.0.10 | Standard_B2s | https://github.com/udayach123/misc-code.git
+[ devops18@vault ~/misc-code/tools_setup ]$ kubectl get secrets argocd-initial-admin-secret -n argocd -o wide json
+NAME                          TYPE     DATA   AGE
+argocd-initial-admin-secret   Opaque   1      2m16s
+Error from server (NotFound): secrets "json" not found
+
+51.137.130.122 | 10.0.0.10 | Standard_B2s | https://github.com/udayach123/misc-code.git
+[ devops18@vault ~/misc-code/tools_setup ]$ kubectl get secrets argocd-initial-admin-secret -n argocd -o json
+{
+    "apiVersion": "v1",
+    "data": {
+        "password": "S1hZVVdsNFMwbHpIT1VBeg=="
+    },
+    "kind": "Secret",
+    "metadata": {
+        "creationTimestamp": "2025-06-25T14:20:07Z",
+        "name": "argocd-initial-admin-secret",
+        "namespace": "argocd",
+        "resourceVersion": "8735",
+        "uid": "9d7e407e-55f0-4cbf-8f67-9a81671414d5"
+    },
+    "type": "Opaque"
+}
+
+51.137.130.122 | 10.0.0.10 | Standard_B2s | https://github.com/udayach123/misc-code.git
+[ devops18@vault ~/misc-code/tools_setup ]$ ^C
+
+51.137.130.122 | 10.0.0.10 | Standard_B2s | https://github.com/udayach123/misc-code.git
+[ devops18@vault ~/misc-code/tools_setup ]$ ^C
+
+51.137.130.122 | 10.0.0.10 | Standard_B2s | https://github.com/udayach123/misc-code.git
+[ devops18@vault ~/misc-code/tools_setup ]$ kubectl get secrets argocd-initial-admin-secret -n argocd -o json | jq .data.password
+"S1hZVVdsNFMwbHpIT1VBeg=="
+
+51.137.130.122 | 10.0.0.10 | Standard_B2s | https://github.com/udayach123/misc-code.git
+[ devops18@vault ~/misc-code/tools_setup ]$ kubectl get secrets argocd-initial-admin-secret -n argocd -o json | jq .data.password | xargs | base64 --decode
+KXYUWl4S0lzHOUAz
+51.137.130.122 | 10.0.0.10 | Standard_B2s | https://github.com/udayach123/misc-code.git
+[ devops18@vault ~/misc-code/tools_setup ]$ kubectl get secrets argocd-initial-admin-secret -n argocd -o json | jq .data.password | xargs | base64 --decode
+KXYUWl4S0lzHOUAz
 
 

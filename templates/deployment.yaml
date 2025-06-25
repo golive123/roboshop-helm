@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: {{ .Values.appName }}
-          image: golive.azurecr.io/roboshop-/{{ .Values.appName }}:{{ .Values.appTag }}
+          image: golive.azurecr.io/roboshop-{{ .Values.appName }}:{{ .Values.appTag }}
           ports:
             - containerPort: {{ .Values.containerPort }}
           envFrom:
