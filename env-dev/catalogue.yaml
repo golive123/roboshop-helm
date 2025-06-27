@@ -1,4 +1,4 @@
-env: dev
+  env: dev
 appName: catalogue
 containerPort: 8080
 serviceType: ClusterIP

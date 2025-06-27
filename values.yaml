@@ -3,3 +3,4 @@ db_job:
 
 minReplicas: 1
 maxReplicas: 2
+
