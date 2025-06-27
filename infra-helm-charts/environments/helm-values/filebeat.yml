@@ -16,7 +16,7 @@ daemonset:
             - logs_path:
                 logs_path: "/var/log/containers/"
       output.logstash:
-        hosts: 'elk-stack-new-vault.yourtherapist.in:5400'
+        hosts: 'elk-stack-new-vault.yourtherapist.in:5044'
 
 
 
