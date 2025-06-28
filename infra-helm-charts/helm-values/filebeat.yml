@@ -15,4 +15,4 @@ daemonset:
             - logs_path:
                 logs_path: "/var/log/containers/"
       output.logstash:
-        hosts: 'http://elk-stack-new.yourtherapist.in:5044'
+        hosts: 'elk-stack-new.yourtherapist.in:5044'
