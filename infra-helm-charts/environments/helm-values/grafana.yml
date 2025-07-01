@@ -1,0 +1,23 @@
+#replicaCount: 1
+
+adminUser: admin
+adminPassword: admin123
+
+service:
+  type: ClusterIP
+  port: 80
+
+#ingress:
+#  enabled: false
+#
+#persistence:
+#  enabled: true
+#  size: 2Gi
+#
+#resources:
+#  requests:
+#    cpu: 100m
+#    memory: 128Mi
+#  limits:
+#    cpu: 500m
+#    memory: 256Mi

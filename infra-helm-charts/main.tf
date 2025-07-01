@@ -98,4 +98,46 @@ resource "helm_release" "filebeat" {
     file("${path.module}/helm-values/filebeat.yml")
   ]
 }
-#
+## Filebeat Helm Chart
+resource "helm_release" "filebeat" {
+
+  depends_on = [null_resource.kubeconfig]
+  name       = "filebeat"
+  repository = "https://helm.elastic.co"
+  chart      = "filebeat"
+  namespace  = "kube-system"
+  wait       = "false"
+
+  values = [
+    file("${path.module}/helm-values/filebeat.yml")
+  ]
+}
+
+## Prometheus Stack Helm Chart
+resource "helm_release" "prometheus" {
+
+  depends_on = [null_resource.kubeconfig]
+  name       = "prom-stack"
+  repository = "https://prometheus-community.github.io/helm-charts"
+  chart      = "kube-prometheus-stack"
+  namespace  = "devops"
+  wait       = "false"
+
+  values = [
+    file("${path.module}/helm-values/prometheus.yml")
+  ]
+}
+
+## Grafana  Helm Chart
+resource "helm_release" "grafana" {
+  name       = "grafana"
+  namespace  = "devops"
+  repository = "https://grafana.github.io/helm-charts"
+  chart      = "grafana"
+  version    = "6.58.4" # Use a valid version from repo
+  create_namespace = true
+
+  values = [
+    file("${path.module}/grafana.yaml")
+  ]
+}
