@@ -165,3 +165,4 @@ resource "helm_release" "logstash" {
   values = [file("${path.module}/helm-values/logstash.yml")]
   depends_on = [helm_release.kibana]
 }
+#
