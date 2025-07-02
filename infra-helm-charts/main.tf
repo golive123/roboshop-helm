@@ -132,10 +132,10 @@ resource "helm_release" "grafana" {
 resource "helm_release" "elasticsearch" {
   depends_on = [null_resource.kubeconfig]
   name       = "elasticsearch"
-  namespace  = devops
+  namespace  = "devops"
   repository = "https://helm.elastic.co"
   chart      = "elasticsearch"
-  version    = 8.13.4
+  version    = "8.13.4"
   create_namespace = true
 
   values = [file("${path.module}/values/elk.yml")]
@@ -144,10 +144,10 @@ resource "helm_release" "elasticsearch" {
 ## Kibana  Helm Chart
 resource "helm_release" "kibana" {
   name       = "kibana"
-  namespace  = devops
+  namespace  = "devops"
   repository = "https://helm.elastic.co"
   chart      = "kibana"
-  version    = 8.13.4
+  version    = "8.13.4"
   create_namespace = true
 
   values = [file("${path.module}/helm-values/kibana.yml")]
@@ -157,10 +157,10 @@ resource "helm_release" "kibana" {
 ## Logstash  Helm Chart
 resource "helm_release" "logstash" {
   name       = "logstash"
-  namespace  = devops
+  namespace  = "devops"
   repository = "https://helm.elastic.co"
   chart = "logstash"
-  version    = 8.13.4
+  version    = "8.13.4"
   create_namespace = true
   values = [file("${path.module}/helm-values/logstash.yml")]
   depends_on = [helm_release.kibana]
