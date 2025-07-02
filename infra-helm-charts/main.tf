@@ -138,7 +138,7 @@ resource "helm_release" "elasticsearch" {
   version    = "8.13.4"
   create_namespace = true
 
-  values = [file("${path.module}/values/elk.yml")]
+  values = [file("${path.module}/helm-values/elk.yml")]
 }
 
 ## Kibana  Helm Chart
