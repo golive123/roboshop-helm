@@ -135,7 +135,7 @@ resource "helm_release" "elasticsearch" {
   namespace  = "devops"
   repository = "https://helm.elastic.co"
   chart      = "elasticsearch"
-  version    = "8.13.4"
+  #version    = "8.13.4"
   create_namespace = true
 
   values = [file("${path.module}/helm-values/elk.yml")]
@@ -147,7 +147,7 @@ resource "helm_release" "kibana" {
   namespace  = "devops"
   repository = "https://helm.elastic.co"
   chart      = "kibana"
-  version    = "8.13.4"
+  #version    = "8.13.4"
   create_namespace = true
 
   values = [file("${path.module}/helm-values/kibana.yml")]
@@ -160,7 +160,7 @@ resource "helm_release" "logstash" {
   namespace  = "devops"
   repository = "https://helm.elastic.co"
   chart = "logstash"
-  version    = "8.13.4"
+  #version    = "8.13.4"
   create_namespace = true
   values = [file("${path.module}/helm-values/logstash.yml")]
   depends_on = [helm_release.kibana]
