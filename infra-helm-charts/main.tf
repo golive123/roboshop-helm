@@ -98,20 +98,20 @@ resource "helm_release" "filebeat" {
     file("${path.module}/helm-values/filebeat.yml")
   ]
 }
-## Filebeat Helm Chart
-resource "helm_release" "filebeat" {
-
-  depends_on = [null_resource.kubeconfig]
-  name       = "filebeat"
-  repository = "https://helm.elastic.co"
-  chart      = "filebeat"
-  namespace  = "kube-system"
-  wait       = "false"
-
-  values = [
-    file("${path.module}/helm-values/filebeat.yml")
-  ]
-}
+# ## Filebeat Helm Chart
+# resource "helm_release" "filebeat" {
+#
+#   depends_on = [null_resource.kubeconfig]
+#   name       = "filebeat"
+#   repository = "https://helm.elastic.co"
+#   chart      = "filebeat"
+#   namespace  = "kube-system"
+#   wait       = "false"
+#
+#   values = [
+#     file("${path.module}/helm-values/filebeat.yml")
+#   ]
+# }
 
 ## Prometheus Stack Helm Chart
 resource "helm_release" "prometheus" {
