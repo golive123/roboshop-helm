@@ -98,20 +98,6 @@ resource "helm_release" "filebeat" {
     file("${path.module}/helm-values/filebeat.yml")
   ]
 }
-# ## Filebeat Helm Chart
-# resource "helm_release" "filebeat" {
-#
-#   depends_on = [null_resource.kubeconfig]
-#   name       = "filebeat"
-#   repository = "https://helm.elastic.co"
-#   chart      = "filebeat"
-#   namespace  = "kube-system"
-#   wait       = "false"
-#
-#   values = [
-#     file("${path.module}/helm-values/filebeat.yml")
-#   ]
-# }
 
 ## Prometheus Stack Helm Chart
 resource "helm_release" "prometheus" {
@@ -141,4 +127,41 @@ resource "helm_release" "grafana" {
   values = [
     file("${path.module}/helm-values/grafana.yml")
   ]
+}
+## ELK  Helm Chart
+resource "helm_release" "elasticsearch" {
+  depends_on = [null_resource.kubeconfig]
+  name       = "elasticsearch"
+  namespace  = devops
+  repository = "https://helm.elastic.co"
+  chart      = "elasticsearch"
+  version    = 8.13.4
+  create_namespace = true
+
+  values = [file("${path.module}/values/elk.yml")]
+}
+
+## Kibana  Helm Chart
+resource "helm_release" "kibana" {
+  name       = "kibana"
+  namespace  = devops
+  repository = "https://helm.elastic.co"
+  chart      = "kibana"
+  version    = 8.13.4
+  create_namespace = true
+
+  values = [file("${path.module}/helm-values/kibana.yml")]
+  depends_on = [helm_release.elasticsearch]
+}
+
+## Logstash  Helm Chart
+resource "helm_release" "logstash" {
+  name       = "logstash"
+  namespace  = devops
+  repository = "https://helm.elastic.co"
+  chart = "logstash"
+  version    = 8.13.4
+  create_namespace = true
+  values = [file("${path.module}/helm-values/logstash.yml")]
+  depends_on = [helm_release.kibana]
 }
