@@ -130,6 +130,7 @@ resource "helm_release" "prometheus" {
 
 ## Grafana  Helm Chart
 resource "helm_release" "grafana" {
+  depends_on = [null_resource.kubeconfig]
   name       = "grafana"
   namespace  = "devops"
   repository = "https://grafana.github.io/helm-charts"
@@ -138,6 +139,6 @@ resource "helm_release" "grafana" {
   create_namespace = true
 
   values = [
-    file("${path.module}/grafana.yml")
+    file("${path.module}/helm-values/grafana.yml")
   ]
 }
