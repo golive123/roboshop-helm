@@ -31,6 +31,11 @@ done
 
 helm -ls -n app
 helm uninstall cart -n app
+
+run github deployment with using for loop:
+
+for i in cart catalogue user shipping payment frontend; do cd roboshop-$i ; gh workflow run deploy.yml ; cd..; done
+
 =====================================================================
 argocd commands:
 
